@@ -8,5 +8,6 @@ public class SGportaloApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SGportaloApplication.class, args);
+		// start
 	}
 }
