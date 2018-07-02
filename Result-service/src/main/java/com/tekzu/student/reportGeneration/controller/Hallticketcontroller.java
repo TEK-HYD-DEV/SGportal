@@ -2,6 +2,7 @@ package com.tekzu.student.reportGeneration.controller;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,9 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.tekzu.student.model.Student;
 import com.tekzu.student.model.StudentAddress;
+import com.tekzu.utils.SystemDetails;
 
 @RestController
 public class Hallticketcontroller {
+	
+	 @Autowired
+		SystemDetails systemDetails;
 	
 		
 	 @GetMapping("/reportgeneration/student")
@@ -33,6 +38,16 @@ public class Hallticketcontroller {
 	 stdregreply.setState("Andhra Pradesh");
 	 return stdregreply;
 	 }
+	 
+
+	 
+	 @RequestMapping("/login")
+		public void login() {
+			System.out.println("login controller...");
+			systemDetails.getSystemOS();
+			
+		}
+
 
 
 }
