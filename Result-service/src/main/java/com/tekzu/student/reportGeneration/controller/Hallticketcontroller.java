@@ -30,9 +30,9 @@ public class Hallticketcontroller {
 	        return new Student();
 	    }
 	 
-	 @RequestMapping(method = RequestMethod.POST, value="/student/address")
+	 @RequestMapping(method = RequestMethod.GET, value="/student/address")
 	 @ResponseBody
-	 StudentAddress registerStudent(@RequestBody StudentAddress studentregd) {
+	 StudentAddress registerStudent() {
 		 StudentAddress stdregreply = new StudentAddress();
 	 stdregreply.setCountry("India");
 	 stdregreply.setState("Andhra Pradesh");
