@@ -21,7 +21,7 @@ import com.tekzu.utils.SystemDetails;
 public class Hallticketcontroller {
 	
 	 @Autowired
-		SystemDetails systemDetails;
+		SystemDetails systemDetails;  
 	
 		
 	 @GetMapping("/reportgeneration/student")
