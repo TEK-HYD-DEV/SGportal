@@ -13,41 +13,49 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.tekzu.service.HallTicketPdfService;
 import com.tekzu.student.model.Student;
 import com.tekzu.student.model.StudentAddress;
 import com.tekzu.utils.SystemDetails;
 
 @RestController
 public class Hallticketcontroller {
-	
-	 @Autowired
-		SystemDetails systemDetails;  
-	
-		
-	 @GetMapping("/reportgeneration/student")
-	    @ResponseBody
-	    public Student welcomeUser(@RequestParam(name="name", required=false, defaultValue="wrking") String name) {
-	        return new Student();
-	    }
-	 
-	 @RequestMapping(method = RequestMethod.GET, value="/student/address")
-	 @ResponseBody
-	 StudentAddress registerStudent() {
-		 StudentAddress stdregreply = new StudentAddress();
-	 stdregreply.setCountry("India");
-	 stdregreply.setState("Andhra Pradesh");
-	 return stdregreply;
-	 }
-	 
 
-	 
-	 @RequestMapping("/login")
-		public void login() {
-			System.out.println("login controller...");
-			systemDetails.getSystemOS();
-			
-		}
+	@Autowired
+	SystemDetails systemDetails;
+	// Changes By Pradeep
+	@Autowired
+	HallTicketPdfService hallTicketPdfService;
 
+	// End
+	@GetMapping("/reportgeneration/student")
+	@ResponseBody
+	public Student welcomeUser(@RequestParam(name = "name", required = false, defaultValue = "wrking") String name) {
+		return new Student();
+	}
 
+	@RequestMapping(method = RequestMethod.GET, value = "/student/address")
+	@ResponseBody
+	StudentAddress registerStudent() {
+		StudentAddress stdregreply = new StudentAddress();
+		stdregreply.setCountry("India");
+		stdregreply.setState("Andhra Pradesh");
+		return stdregreply;
+	}
 
+	@RequestMapping("/login")
+	public void login() {
+		System.out.println("login controller...");
+		systemDetails.getSystemOS();
+
+	}
+//Changes BY Pradeep
+	@RequestMapping("/pdf")
+	public String pdfGeneration() {
+		System.out.println("PDF controller...");
+		systemDetails.getSystemOS();
+		return null;
+
+	}
+//END
 }
